@@ -9,12 +9,16 @@ public class Bdd {
     static final String USERNAME = "root";
     static final String PASSWORD = "root";
 
-    private static Connection connexion;
+    private static Connection connection;
     static {
         try {
-            connexion = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+            connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static Connection getConnection() {
+        return connection;
     }
 }
