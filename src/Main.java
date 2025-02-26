@@ -2,17 +2,20 @@ import com.apolline.sql.db.Bdd;
 import com.apolline.sql.model.User;
 import com.apolline.sql.repository.UserRepository;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         Bdd.getConnection();
         User newUser = new User(
-                "Apolline",
-                "Setan",
-                "test@gmail.com",
-                "Hhhfnu284D"
+                "Sophie",
+                "Hervieu",
+                "test2@gmail.com",
+                "Hhhacfnu284D"
         );
 
         // UserRepository.save(newUser); pour enregistrer qlq en bdd
+
         boolean exist = UserRepository.isExist("test@gmail.com");
         if (exist) {
             System.out.println("Le compte existe");
@@ -27,5 +30,9 @@ public class Main {
             System.out.println("User not found");
         }
 
+        List<User> allUsers = UserRepository.findAll();
+        for (User user : allUsers){
+            System.out.println(user);
+        }
     }
 }

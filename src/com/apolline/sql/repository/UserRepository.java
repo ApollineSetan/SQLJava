@@ -6,6 +6,8 @@ import com.apolline.sql.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserRepository {
 
@@ -80,6 +82,26 @@ public class UserRepository {
             e.printStackTrace();
         }
         return getUser;
+    }
+
+    public static List<User> findAll () {
+        List<User> users = new ArrayList<>();
+        try {
+            String sql = "SELECT id, firstname, lastname, email FROM users";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                User user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setFirstname(resultSet.getString("firstname"));
+                user.setLastname(resultSet.getString("lastname"));
+                user.setEmail(resultSet.getString("email"));
+                users.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
 }
