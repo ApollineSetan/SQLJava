@@ -34,5 +34,21 @@ public class Main {
         for (User user : allUsers){
             System.out.println(user);
         }
+
+        User userToUpdate = new User(
+                "Sophie",
+                "Hervieu",
+                "test2@gmail.com",
+                "Hhhacfnu284D"
+        );
+
+        // UserRepository.save(newUser); pour enregistrer qlq en bdd
+
+        User updatedUser = UserRepository.update(userToUpdate, "test@gmail.com");
+        if (updatedUser != null){
+            System.out.println("User updated successfully " + updatedUser);
+        } else {
+            System.out.println("User with email " + userToUpdate + " not found");
+        }
     }
 }

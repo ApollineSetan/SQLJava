@@ -104,4 +104,28 @@ public class UserRepository {
         return users;
     }
 
+    public static User update(User updateUser, String email){
+        User modifiedUser = null;
+        try {
+            if (isExist(email)) {
+                String sql = "UPDATE users SET firstname=?, lastname=?, email=?, password=? WHERE id=?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+                preparedStatement.setString(1, updateUser.getFirstname());
+                preparedStatement.setString(2, updateUser.getLastname());
+                preparedStatement.setString(3, updateUser.getEmail());
+                preparedStatement.setString(4, updateUser.getPassword());
+                preparedStatement.setString(5, email);
+
+                int nbrRows = preparedStatement.executeUpdate();
+                if(nbrRows > 0){
+                    modifiedUser = updateUser;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return modifiedUser;
+    }
+
 }
