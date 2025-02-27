@@ -8,10 +8,11 @@ public class Main {
     public static void main(String[] args) {
         Bdd.getConnection();
         User newUser = new User(
-                "Sophie",
-                "Hervieu",
-                "test2@gmail.com",
-                "Hhhacfnu284D"
+                "Apolline",
+                "Setan",
+                "test@gmail.com",
+                "Hhhacfnu284D",
+                "Administrateur"
         );
 
         // UserRepository.save(newUser); pour enregistrer qlq en bdd
@@ -39,7 +40,8 @@ public class Main {
                 "Sophie",
                 "Hervieu",
                 "test2@gmail.com",
-                "Hhhacfnu284D"
+                "Hhhacfnu284D",
+                "Administrateur"
         );
 
         // UserRepository.save(newUser); pour enregistrer qlq en bdd

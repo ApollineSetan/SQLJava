@@ -7,6 +7,7 @@ public class User {
     private String lastname;
     private String email;
     private String password;
+    private Roles roles;
 
     // Constructeurs
     public User(){}
@@ -59,6 +60,14 @@ public class User {
         this.password = password;
     }
 
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
+    }
+
     // Méthode permettant de retourner une chaîne et non pas un pointeur de la mémoire dans la console
     @Override
     public String toString() {
@@ -67,6 +76,7 @@ public class User {
                 ",firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
+                ", role='" + roles.getRolesName() + '\'' +
                 '}';
     }
 }
