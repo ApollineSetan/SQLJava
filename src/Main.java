@@ -7,15 +7,15 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Bdd.getConnection();
-        User newUser = new User(
-                "Apolline",
-                "Setan",
-                "test@gmail.com",
-                "Hhhacfnu284D",
-                "Administrateur"
-        );
-
-        // UserRepository.save(newUser); pour enregistrer qlq en bdd
+//        User newUser = new User(
+//                "Apolline",
+//                "Setan",
+//                "test@gmail.com",
+//                "Hhhacfnu284D",
+//                "ADMIN"
+//        );
+//
+//        UserRepository.save(newUser); pour enregistrer qlq en bdd
 
         boolean exist = UserRepository.isExist("test@gmail.com");
         if (exist) {
@@ -36,21 +36,21 @@ public class Main {
             System.out.println(user);
         }
 
-        User userToUpdate = new User(
-                "Sophie",
-                "Hervieu",
-                "test2@gmail.com",
-                "Hhhacfnu284D",
-                "Administrateur"
-        );
-
-        // UserRepository.save(newUser); pour enregistrer qlq en bdd
-
-        User updatedUser = UserRepository.update(userToUpdate, "test2@gmail.com");
-        if (updatedUser != null){
-            System.out.println("User updated successfully " + updatedUser);
-        } else {
-            System.out.println("User with email " + userToUpdate + " not found");
-        }
+//        User userToUpdate = new User(
+//                "Sophie",
+//                "Hervieu",
+//                "test2@gmail.com",
+//                "Hhhacfnu284D",
+//                "USER"
+//        );
+//
+//        UserRepository.save(newUser); pour enregistrer qlq en bdd
+//
+//        User updatedUser = UserRepository.update(userToUpdate, "test2@gmail.com");
+//        if (updatedUser != null){
+//            System.out.println("User updated successfully " + updatedUser);
+//        } else {
+//            System.out.println("User with email " + userToUpdate + " not found");
+//        }
     }
 }
