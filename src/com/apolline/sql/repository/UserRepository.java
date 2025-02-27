@@ -108,7 +108,7 @@ public class UserRepository {
         User modifiedUser = null;
         try {
             if (isExist(email)) {
-                String sql = "UPDATE users SET firstname=?, lastname=?, email=?, password=? WHERE id=?";
+                String sql = "UPDATE users SET firstname=?, lastname=?, email=?, password=? WHERE email=?";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
                 preparedStatement.setString(1, updateUser.getFirstname());

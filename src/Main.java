@@ -44,7 +44,7 @@ public class Main {
 
         // UserRepository.save(newUser); pour enregistrer qlq en bdd
 
-        User updatedUser = UserRepository.update(userToUpdate, "test@gmail.com");
+        User updatedUser = UserRepository.update(userToUpdate, "test2@gmail.com");
         if (updatedUser != null){
             System.out.println("User updated successfully " + updatedUser);
         } else {
